@@ -29,5 +29,17 @@ function readUsers(req, res) {
     });
  }
 
+ function readUser(req, res) {
+
+    let User = require("../models/user");
+
+    User.findById({_id : req.params.id})
+    .then((user) => {
+        res.status(200).json(user);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+ }
 module.exports.reads = readUsers;
 module.exports.create = createUser;
+module.exports.read = readUser;
