@@ -19,4 +19,17 @@ function createPizza(req, res) {
 
 }
 
+function readPizzas(req, res) {
+
+    let Pizza = require("../models/pizza");
+
+    Pizza.find({})
+    .then((pizzas) => {
+        res.status(200).json(pizzas);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+ }
+
+module.exports.reads = readPizzas;
 module.exports.create = createPizza;
