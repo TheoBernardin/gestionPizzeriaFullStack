@@ -19,8 +19,8 @@ router.get("/users", (req, res) => {
 
 });
 
-router.get("/user", (req, res) => {
-    res.json({"msg": "Get a user"});
+router.get("/user/:id", (req, res) => {
+    controller.read(req, res);
 });
 
 //UPDATE
