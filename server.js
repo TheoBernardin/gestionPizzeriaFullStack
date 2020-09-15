@@ -21,6 +21,9 @@ const morgan = require("morgan");
 //Add more logging
 const {loggers, transports, format} = require("winston");
 
+//Accessing MongoDB
+const mongoose = require('mongoose');
+
 //Create an application 
 const app = express();
 
@@ -56,6 +59,23 @@ loggers.add('errorLogger', {
 });
 
 const infoLogger = loggers.get('infoLogger');
+
+//Connecting to MongoDB (async/await approach)
+const connectDb = async () => {
+    await mongoose.connect('mongodb://localhost:27017/pizzeria', {useNewUrlParser: true, useUnifiedTopology : true}).then(
+        () => {
+            console.log(chalk.green(`Connected to database`))
+            infoLogger.info("Connected to database");
+        },
+        error => {
+            console.error(chalk.red(`Connection error: ${error.stack}`))
+            process.exit(1)
+        }
+    )
+  }
+  
+  connectDb().catch(error => console.error(error))
+
 
 //Accessing the routes for the pizza
 const pizzaRoutes = require('./routes/pizza');

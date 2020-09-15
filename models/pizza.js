@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var TodoSchema = new Schema({
+var PizzaSchema = new Schema({
   nom : String,
   ingredients : [String],
   taille : String,
@@ -13,4 +13,4 @@ var TodoSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Todo', TodoSchema);
+module.exports = mongoose.model('Pizza', PizzaSchema);
