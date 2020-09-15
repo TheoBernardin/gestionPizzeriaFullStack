@@ -61,7 +61,7 @@ const infoLogger = loggers.get('infoLogger');
 const pizzaRoutes = require('./routes/pizza');
 
 //Accessing the routes for the user
-const userRoutes = require('./routes/users');
+const userRoutes = require('./routes/user');
 
 //Acces the routes 
 app.use(pizzaRoutes);
