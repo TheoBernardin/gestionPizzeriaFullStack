@@ -17,4 +17,17 @@ function createUser(req, res) {
     });
 }
 
+function readUsers(req, res) {
+
+    let User = require("../models/user");
+
+    User.find({})
+    .then((users) => {
+        res.status(200).json(users);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+ }
+
+module.exports.reads = readPizzas;
 module.exports.create = createUser;
