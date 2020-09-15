@@ -57,11 +57,17 @@ loggers.add('errorLogger', {
 
 const infoLogger = loggers.get('infoLogger');
 
-//Accessing the routes for the user
+//Accessing the routes for the pizza
 const pizzaRoutes = require('./routes/pizza');
+
+//Accessing the routes for the user
+const userRoutes = require('./routes/users');
 
 //Acces the routes 
 app.use(pizzaRoutes);
+
+//Acces the routes 
+app.use(userRoutes);
 
 //When there is no route that caught the incoming request
 //use the 404 middleware
