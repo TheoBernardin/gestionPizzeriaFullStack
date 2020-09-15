@@ -29,5 +29,5 @@ function readUsers(req, res) {
     });
  }
 
-module.exports.reads = readPizzas;
+module.exports.reads = readUsers;
 module.exports.create = createUser;
