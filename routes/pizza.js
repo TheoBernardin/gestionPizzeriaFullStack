@@ -13,7 +13,7 @@ router.get("/pizzas", (req, res) => {
 });
 
 router.get("/pizza", (req, res) => {
-    res.json({"msg": "Get a todo"});
+    res.json({"msg": "Get a pizza"});
 });
 
 //UPDATE
