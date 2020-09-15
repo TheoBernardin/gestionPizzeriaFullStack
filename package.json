@@ -1,0 +1,24 @@
+{
+  "name": "gestionpizzeriafullstack",
+  "version": "1.0.0",
+  "description": "projet full stack de gestion de pizzeria ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enzomasson25/gestionPizzeriaFullStack.git"
+  },
+  "keywords": [
+    "gestion",
+    "pizzeria",
+    "fullstack"
+  ],
+  "author": "Alexandre Morel, Roshan Nepaul, Enzo Masson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enzomasson25/gestionPizzeriaFullStack/issues"
+  },
+  "homepage": "https://github.com/enzomasson25/gestionPizzeriaFullStack#readme"
+}
