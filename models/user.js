@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var TodoSchema = new Schema({
+var UserSchema = new Schema({
   nom : String,
   prenom : String,
   telephone : String,
@@ -12,4 +12,4 @@ var TodoSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Todo', TodoSchema);
+module.exports = mongoose.model('User', UserSchema);
