@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/enzomasson25/gestionPizzeriaFullStack/issues"
   },
-  "homepage": "https://github.com/enzomasson25/gestionPizzeriaFullStack#readme"
+  "homepage": "https://github.com/enzomasson25/gestionPizzeriaFullStack#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "winston": "^3.3.3"
+  }
 }

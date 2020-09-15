@@ -1,0 +1,5 @@
+Tue, 15 Sep 2020 12:22:34 GMT | ERROR  | HTTP 404: ask for:  http://localhost:3000/
+Tue, 15 Sep 2020 12:22:34 GMT | ERROR  | HTTP 404: ask for:  http://localhost:3000/favicon.ico
+Tue, 15 Sep 2020 12:22:39 GMT | ERROR  | HTTP 404: ask for:  http://localhost:3000/pizza
+Tue, 15 Sep 2020 12:23:03 GMT | ERROR  | HTTP 404: ask for:  http://localhost:3000/pizza
+Tue, 15 Sep 2020 12:25:00 GMT | ERROR  | HTTP 404: ask for:  http://localhost:3000/pizza
