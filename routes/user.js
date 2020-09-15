@@ -1,24 +1,14 @@
 //Access the router on Express 
 const router = require('express').Router();
 
+//Access the controllers
+const controller = require('../controllers/user');
+
+
 //CREATE
 router.post("/user", (req, res) => {
-    let User = require('../models/user');
-    let newUser = User ({
-        nom: req.body.nom,
-        prenom : req.body.prenom,
-        telephone : req.body.telephone
-    });
-  
-    newUser.save()
-    .then((savedUser) => {
-
-        //send back the created Todo
-        res.json(savedUser);
-            
-    }, (err) => {
-        res.status(400).json(err)
-    });
+     
+    controller.create(req, res);
 
 });
 
