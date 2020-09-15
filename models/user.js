@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var TodoSchema = new Schema({
   nom : String,
   prénom : String,
-  telephone : Number,
+  telephone : String,
   createdAt : {
     type : Date,
     default : Date.now
