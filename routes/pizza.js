@@ -13,7 +13,9 @@ router.post("/pizza", (req, res) => {
 
 //READ
 router.get("/pizzas", (req, res) => {
-    res.json({"msg": "Get all the pizzas"});
+    
+    controller.reads(req, res);
+    
 });
 
 router.get("/pizza", (req, res) => {
