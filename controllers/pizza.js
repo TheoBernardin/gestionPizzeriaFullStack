@@ -10,7 +10,7 @@ function createPizza(req, res) {
     newPizza.save()
     .then((savedPizza) => {
 
-        //send back the created Todo
+        //send back the created Pizza
         res.json(savedPizza);
             
     }, (err) => {
