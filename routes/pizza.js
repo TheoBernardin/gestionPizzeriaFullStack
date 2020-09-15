@@ -10,6 +10,7 @@ router.post("/pizza", (req, res) => {
     controller.create(req, res);
 
 });
+
 //READ
 router.get("/pizzas", (req, res) => {
     res.json({"msg": "Get all the pizzas"});
