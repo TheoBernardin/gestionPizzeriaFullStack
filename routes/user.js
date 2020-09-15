@@ -14,7 +14,9 @@ router.post("/user", (req, res) => {
 
 //READ
 router.get("/users", (req, res) => {
-    res.json({"msg": "Get all the users"});
+    
+    controller.reads(req, res);
+
 });
 
 router.get("/user", (req, res) => {
