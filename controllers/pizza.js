@@ -53,14 +53,28 @@ function readPizzas(req, res) {
         taille : req.body.taille,
         prix : req.body.prix}, 
         {new : true})
-    .then((updatedTodo) => {
-        res.status(200).json(updatedTodo);
+    .then((updatedPizza) => {
+        res.status(200).json(updatedPizza);
     }, (err) => {
         res.status(500).json(err);
     });
+ }
+
+ function deletePizza(req, res){
+
+    let Pizza = require("../models/pizza");
+
+    Pizza.findOneAndRemove({_id : req.params.id})
+    .then((deletedPizza) => {
+        res.status(200).json(deletedPizza);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+
  }
 
 module.exports.reads = readPizzas;
 module.exports.create = createPizza;
 module.exports.read = readPizza;
 module.exports.update = updatePizza;
+module.exports.delete = deletePizza;
