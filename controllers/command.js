@@ -18,25 +18,13 @@ function createCommand(req, res) {
 
 }
 
-function readCommand(req, res) {
+ function readCommand(req, res) {
 
-    let Command = require("../models/command");
+    let Pizza = require("../models/command");
 
-    Command.find({})
-    .then((pizzas) => {
-        res.status(200).json(pizzas);
-    }, (err) => {
-        res.status(500).json(err);
-    });
- }
-
- function readPizza(req, res) {
-
-    let Pizza = require("../models/pizza");
-
-    Pizza.findById({_id : req.params.id})
-    .then((pizza) => {
-        res.status(200).json(pizza);
+    Command.findById({_id : req.params.id})
+    .then((command) => {
+        res.status(200).json(command);
     }, (err) => {
         res.status(500).json(err);
     });
@@ -57,6 +45,19 @@ function readCommand(req, res) {
     }, (err) => {
         res.status(500).json(err);
     });
+ }
+
+ function deleteCommand(req, res){
+
+    let Pizza = require("../models/pizza");
+
+    Pizza.findOneAndRemove({_id : req.params.id})
+    .then((deletedPizza) => {
+        res.status(200).json(deletedPizza);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+
  }
 
 module.exports.reads = readPizzas;
