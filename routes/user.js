@@ -18,13 +18,15 @@ router.get("/user/:id", (req, res) => {
 });
 
 //UPDATE
-router.put("/user", (req, res) => {
-    res.json({"msg": "Update a user"});
+router.put("/user/:id", (req, res) => {
+
+    controller.update(req, res);
 });
 
 //DELETE
 router.delete("/user", (req, res) => {
-    res.json({"msg": "Delete a user"});
+    
+    controller.delete(req, res);
 });
 
 module.exports = router;
