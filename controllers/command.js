@@ -1,6 +1,6 @@
 function createCommand(req, res) {
     let Command = require('../models/command');
-    let newCommmand = Command ({
+    let newCommand = Command ({
         client : req.body.client,
         pizza : req.body.pizza,
         prix : req.body.prix
@@ -20,7 +20,7 @@ function createCommand(req, res) {
 
  function readCommand(req, res) {
 
-    let Pizza = require("../models/command");
+    let Command = require("../models/command");
 
     Command.findById({_id : req.params.id})
     .then((command) => {
@@ -30,18 +30,17 @@ function createCommand(req, res) {
     });
  }
 
- function updatePizza(req, res){
+ function updateCommand(req, res){
 
-    let Pizza = require("../models/pizza");
+    let Command = require("../models/command");
 
-    Pizza.findByIdAndUpdate({_id: req.params.id}, 
-        {nom : req.body.nom, 
-        ingredients : req.body.ingredients,
-        taille : req.body.taille,
+    Command.findByIdAndUpdate({_id: req.params.id}, 
+        {client : req.body.client, 
+        pizza : req.body.pizza,
         prix : req.body.prix}, 
         {new : true})
-    .then((updatedTodo) => {
-        res.status(200).json(updatedTodo);
+    .then((updatedCommand) => {
+        res.status(200).json(updatedCommand);
     }, (err) => {
         res.status(500).json(err);
     });
@@ -49,18 +48,18 @@ function createCommand(req, res) {
 
  function deleteCommand(req, res){
 
-    let Pizza = require("../models/pizza");
+    let Command = require("../models/command");
 
-    Pizza.findOneAndRemove({_id : req.params.id})
-    .then((deletedPizza) => {
-        res.status(200).json(deletedPizza);
+    Command.findOneAndRemove({_id : req.params.id})
+    .then((deletedCommand) => {
+        res.status(200).json(deletedCommand);
     }, (err) => {
         res.status(500).json(err);
     });
 
  }
 
-module.exports.reads = readPizzas;
-module.exports.create = createPizza;
-module.exports.read = readPizza;
-module.exports.update = updatePizza;
+module.exports.create = createCommand;
+module.exports.delete = deleteCommand;
+module.exports.read = readCommand;
+module.exports.update = updateCommand;
