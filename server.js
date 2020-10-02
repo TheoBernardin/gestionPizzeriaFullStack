@@ -83,11 +83,17 @@ const pizzaRoutes = require('./routes/pizza');
 //Accessing the routes for the user
 const userRoutes = require('./routes/user');
 
+//Accessing the routes for the commands
+const commandRoutes = require('./routes/command');
+
 //Acces the routes 
 app.use(pizzaRoutes);
 
 //Acces the routes 
 app.use(userRoutes);
+
+//Acces the routes 
+app.use(commandRoutes);
 
 //When there is no route that caught the incoming request
 //use the 404 middleware
