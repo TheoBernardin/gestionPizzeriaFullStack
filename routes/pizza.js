@@ -30,8 +30,9 @@ router.put("/pizza/:id", (req, res) => {
 });
 
 //DELETE
-router.delete("/pizza", (req, res) => {
-    res.json({"msg": "Delete a pizza"});
+router.delete("/pizza/:id", (req, res) => {
+
+    controller.delete(req,res);
 });
 
 module.exports = router;
