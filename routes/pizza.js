@@ -26,7 +26,7 @@ router.get("/pizza/:id", (req, res) => {
 //UPDATE
 router.put("/pizza/:id", (req, res) => {
 
-    controller.read(req, res);
+    controller.update(req, res);
 });
 
 //DELETE
