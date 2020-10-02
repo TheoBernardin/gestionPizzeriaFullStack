@@ -3,8 +3,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CommandSchema = new Schema({
-  client : UserSchema,
-  pizza : [PizzaSchema],
+  client : {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+
+  pizza : [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Pizza'
+  }],
+
   prix : Number,
   createdAt : {
     type : Date,
