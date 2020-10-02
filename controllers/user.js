@@ -17,18 +17,6 @@ function createUser(req, res) {
     });
 }
 
-function readUsers(req, res) {
-
-    let User = require("../models/user");
-
-    User.find({})
-    .then((users) => {
-        res.status(200).json(users);
-    }, (err) => {
-        res.status(500).json(err);
-    });
- }
-
  function readUser(req, res) {
 
     let User = require("../models/user");
@@ -40,6 +28,6 @@ function readUsers(req, res) {
         res.status(500).json(err);
     });
  }
-module.exports.reads = readUsers;
-module.exports.create = createUser;
+
 module.exports.read = readUser;
+module.exports.create = createUser;
