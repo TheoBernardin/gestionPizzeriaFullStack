@@ -29,5 +29,35 @@ function createUser(req, res) {
     });
  }
 
+ function updateUser(req, res){
+
+    let User = require("../models/user");
+
+    User.findByIdAndUpdate({_id: req.params.id}, 
+        {nom : req.body.nom, 
+        prenom : req.body.prenom,
+        telephone : req.body.telephone},
+        {new : true})
+    .then((updatedUser) => {
+        res.status(200).json(updatedUser);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+ }
+
+ function deleteUser(req, res){
+
+    let User = require("../models/user");
+
+    User.findOneAndRemove({_id : req.params.id})
+    .then((deletedUser) => {
+        res.status(200).json(deletedUser);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+ }
+
 module.exports.read = readUser;
 module.exports.create = createUser;
+module.exports.update = updateUser;
+module.exports.delete = deleteUser;
