@@ -43,6 +43,24 @@ function readPizzas(req, res) {
     });
  }
 
+ function updatePizza(req, res){
+
+    let Pizza = require("../models/pizza");
+
+    Pizza.findByIdAndUpdate({_id: req.params.id}, 
+        {nom : req.body.nom, 
+        ingredients : req.body.ingredients,
+        taille : req.body.taille,
+        prix : req.body.prix}, 
+        {new : true})
+    .then((updatedTodo) => {
+        res.status(200).json(updatedTodo);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+ }
+
 module.exports.reads = readPizzas;
 module.exports.create = createPizza;
 module.exports.read = readPizza;
+module.exports.update = updatePizza;

@@ -24,8 +24,9 @@ router.get("/pizza/:id", (req, res) => {
 });
 
 //UPDATE
-router.put("/pizza", (req, res) => {
-    res.json({"msg": "Update a pizza"});
+router.put("/pizza/:id", (req, res) => {
+
+    controller.read(req, res);
 });
 
 //DELETE
