@@ -13,12 +13,6 @@ router.post("/user", (req, res) => {
 });
 
 //READ
-router.get("/users", (req, res) => {
-    
-    controller.reads(req, res);
-
-});
-
 router.get("/user/:id", (req, res) => {
     controller.read(req, res);
 });
