@@ -99,12 +99,12 @@ app.use(commandRoutes);
 //use the 404 middleware
 app.use(http404.notFound);
 
-//Listen on the port 3000
-app.listen(3000, () => {
+//Listen on the port 3001
+app.listen(3001, () => {
     //Add info to the loggers
-    infoLogger.info('Server is running on port: 3000');
+    infoLogger.info('Server is running on port: 3001');
 
 });
 
 //Print out where the server is
-console.log(chalk.green("Server is running on port: 3000"));
+console.log(chalk.green("Server is running on port: 3001"));
