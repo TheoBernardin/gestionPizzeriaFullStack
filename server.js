@@ -96,7 +96,7 @@ app.use(orderRoutes);
 app.use(http404.notFound);
 
 //Listen on the port 3001
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
     //Add info to the loggers
     infoLogger.info('Server is running on port: 3001');
 
