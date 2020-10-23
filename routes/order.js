@@ -2,29 +2,29 @@
 const router = require('express').Router();
 
 //Access the controllers
-const controller = require('../controllers/command');
+const controller = require('../controllers/order');
 
 //CREATE
-router.post("/command", (req, res) => {
+router.post("/order", (req, res) => {
 
     controller.create(req, res);
 
 });
 
 //READ
-router.get("/command/:id", (req, res) => {
+router.get("/order/:id", (req, res) => {
     
     controller.read(req, res);
 });
 
 //UPDATE
-router.put("/command/:id", (req, res) => {
+router.put("/order/:id", (req, res) => {
 
     controller.update(req, res);
 });
 
 //DELETE
-router.delete("/command/:id", (req, res) => {
+router.delete("/order/:id", (req, res) => {
 
     controller.delete(req,res);
 });

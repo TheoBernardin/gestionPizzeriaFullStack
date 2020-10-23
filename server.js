@@ -60,20 +60,18 @@ loggers.add('errorLogger', {
 
 const infoLogger = loggers.get('infoLogger');
 
+//ligne forunie par atlas pour faire la connexion à la base de données 
+const uri = "mongodb+srv://dbUser:DydSWaVQZ9Ax4uZM@cluster0.bjnju.mongodb.net/Pizzeria?retryWrites=true&w=majority";
 
-const MongoClient = require('mongodb').MongoClient;
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  console.log(chalk.green("MongoDB Connected…"));
+})
+.catch(err => console.log(err))
 
-// replace the uri string with your connection string.
-const uri = "mongodb+srv://dbUser:DydSWaVQZ9Ax4uZM@cluster0.bjnju.mongodb.net/Pizzeria?retryWrites=true&w=majority"
-MongoClient.connect(uri, function(err, client) {
-   if(err) {
-        console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
-   }
-   console.log('Connected to the database');
-   const collection = client.db("test").collection("devices");
-   // perform actions on the collection object
-   client.close();
-});
 
 //Accessing the routes for the pizza
 const pizzaRoutes = require('./routes/pizza');
@@ -81,8 +79,8 @@ const pizzaRoutes = require('./routes/pizza');
 //Accessing the routes for the user
 const userRoutes = require('./routes/user');
 
-//Accessing the routes for the commands
-const commandRoutes = require('./routes/command');
+//Accessing the routes for the orders
+const orderRoutes = require('./routes/order');
 
 //Acces the routes 
 app.use(pizzaRoutes);
@@ -91,7 +89,7 @@ app.use(pizzaRoutes);
 app.use(userRoutes);
 
 //Acces the routes 
-app.use(commandRoutes);
+app.use(orderRoutes);
 
 //When there is no route that caught the incoming request
 //use the 404 middleware

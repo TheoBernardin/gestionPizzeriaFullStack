@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var CommandSchema = new Schema({
+var OrderSchema = new Schema({
   client : {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -20,4 +20,4 @@ var CommandSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model('Command', CommandSchema);
+module.exports = mongoose.model('Order', OrderSchema);
