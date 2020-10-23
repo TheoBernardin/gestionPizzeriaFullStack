@@ -61,24 +61,20 @@ loggers.add('errorLogger', {
 const infoLogger = loggers.get('infoLogger');
 
 
-/*
-//Connecting to MongoDB (async/await approach)
-const connectDb = async () => {
-    await mongoose.connect('mongodb://localhost:27017/pizzeria', {useNewUrlParser: true, useUnifiedTopology : true}).then(
-        () => {
-            console.log(chalk.green(`Connected to database`))
-            infoLogger.info("Connected to database");
-        },
-        error => {
-            console.error(chalk.red(`Connection error: ${error.stack}`))
-            process.exit(1)
-        }
-    )
-  }
-  
-  connectDb().catch(error => console.error(error))
+const MongoClient = require('mongodb').MongoClient;
 
-*/
+// replace the uri string with your connection string.
+const uri = "mongodb+srv://dbUser:DydSWaVQZ9Ax4uZM@cluster0.bjnju.mongodb.net/Pizzeria?retryWrites=true&w=majority"
+MongoClient.connect(uri, function(err, client) {
+   if(err) {
+        console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
+   }
+   console.log('Connected to the database');
+   const collection = client.db("test").collection("devices");
+   // perform actions on the collection object
+   client.close();
+});
+
 //Accessing the routes for the pizza
 const pizzaRoutes = require('./routes/pizza');
 
