@@ -60,6 +60,8 @@ loggers.add('errorLogger', {
 
 const infoLogger = loggers.get('infoLogger');
 
+
+/*
 //Connecting to MongoDB (async/await approach)
 const connectDb = async () => {
     await mongoose.connect('mongodb://localhost:27017/pizzeria', {useNewUrlParser: true, useUnifiedTopology : true}).then(
@@ -76,7 +78,7 @@ const connectDb = async () => {
   
   connectDb().catch(error => console.error(error))
 
-
+*/
 //Accessing the routes for the pizza
 const pizzaRoutes = require('./routes/pizza');
 
