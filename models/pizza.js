@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 var PizzaSchema = new Schema({
   nom : String,
   ingredients : [String],
-  taille : String,
   prix : Number,
   createdAt : {
     type : Date,
