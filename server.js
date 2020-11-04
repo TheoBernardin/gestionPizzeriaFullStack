@@ -18,6 +18,8 @@ const path = require('path');
 //Used for logging
 const morgan = require("morgan");
 
+const cors = require("cors");
+
 //Add more logging
 const {loggers, transports, format} = require("winston");
 
@@ -26,6 +28,8 @@ const mongoose = require('mongoose');
 
 //Create an application 
 const app = express();
+
+app.use(cors());
 
 //used to fetch the data from forms on HTTP POST, and PUT
 app.use(bodyParser.urlencoded({
@@ -60,21 +64,17 @@ loggers.add('errorLogger', {
 
 const infoLogger = loggers.get('infoLogger');
 
-//Connecting to MongoDB (async/await approach)
-const connectDb = async () => {
-    await mongoose.connect('mongodb://localhost:27017/pizzeria', {useNewUrlParser: true, useUnifiedTopology : true}).then(
-        () => {
-            console.log(chalk.green(`Connected to database`))
-            infoLogger.info("Connected to database");
-        },
-        error => {
-            console.error(chalk.red(`Connection error: ${error.stack}`))
-            process.exit(1)
-        }
-    )
-  }
-  
-  connectDb().catch(error => console.error(error))
+//ligne forunie par atlas pour faire la connexion à la base de données 
+const uri = "mongodb+srv://dbUser:DydSWaVQZ9Ax4uZM@cluster0.bjnju.mongodb.net/Pizzeria?retryWrites=true&w=majority";
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  console.log(chalk.green("MongoDB Connected…"));
+})
+.catch(err => console.log(err))
 
 
 //Accessing the routes for the pizza
@@ -83,8 +83,8 @@ const pizzaRoutes = require('./routes/pizza');
 //Accessing the routes for the user
 const userRoutes = require('./routes/user');
 
-//Accessing the routes for the commands
-const commandRoutes = require('./routes/command');
+//Accessing the routes for the orders
+const orderRoutes = require('./routes/order');
 
 //Acces the routes 
 app.use(pizzaRoutes);
@@ -93,14 +93,14 @@ app.use(pizzaRoutes);
 app.use(userRoutes);
 
 //Acces the routes 
-app.use(commandRoutes);
+app.use(orderRoutes);
 
 //When there is no route that caught the incoming request
 //use the 404 middleware
 app.use(http404.notFound);
 
 //Listen on the port 3001
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
     //Add info to the loggers
     infoLogger.info('Server is running on port: 3001');
 

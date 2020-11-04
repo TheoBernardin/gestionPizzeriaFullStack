@@ -6,7 +6,7 @@ function createPizza(req, res) {
         taille : req.body.taille,
         prix : req.body.prix
     });
-  
+
     newPizza.save()
     .then((savedPizza) => {
 
