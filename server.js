@@ -44,8 +44,7 @@ app.use(bodyParser.json());
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 
 //Define the loggers for Winston
-/*
-On n'utilise plus le loggers 
+
 loggers.add('infoLogger', {
     level: 'info',
     transports: [new transports.File({ filename: path.join(__dirname, 'logs/info.log')})],
@@ -65,7 +64,6 @@ loggers.add('errorLogger', {
 });
 
 const infoLogger = loggers.get('infoLogger');
-*/
 //ligne forunie par atlas pour faire la connexion à la base de données 
 const uri = "mongodb+srv://dbUser:DydSWaVQZ9Ax4uZM@cluster0.bjnju.mongodb.net/Pizzeria?retryWrites=true&w=majority";
 
