@@ -16,6 +16,17 @@ function createUser(req, res) {
         res.status(400).json(err)
     });
 }
+function readUsers(req, res) {
+
+    let User = require("../models/user");
+
+    User.find({})
+    .then((users) => {
+        res.status(200).json(users);
+    }, (err) => {
+        res.status(500).json(err);
+    });
+ }
 
  function readUser(req, res) {
 
@@ -58,6 +69,7 @@ function createUser(req, res) {
  }
 
 module.exports.read = readUser;
+module.exports.reads = readUsers;
 module.exports.create = createUser;
 module.exports.update = updateUser;
 module.exports.delete = deleteUser;
