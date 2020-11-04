@@ -18,6 +18,8 @@ const path = require('path');
 //Used for logging
 const morgan = require("morgan");
 
+const cors = require("cors");
+
 //Add more logging
 const {loggers, transports, format} = require("winston");
 
@@ -26,6 +28,8 @@ const mongoose = require('mongoose');
 
 //Create an application 
 const app = express();
+
+app.use(cors());
 
 //used to fetch the data from forms on HTTP POST, and PUT
 app.use(bodyParser.urlencoded({
