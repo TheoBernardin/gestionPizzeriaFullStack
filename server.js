@@ -65,7 +65,7 @@ loggers.add('errorLogger', {
 
 const infoLogger = loggers.get('infoLogger');
 //ligne forunie par atlas pour faire la connexion à la base de données 
-const uri = "mongodb+srv://dbUser:DydSWaVQZ9Ax4uZM@cluster0.bjnju.mongodb.net/Pizzeria?retryWrites=true&w=majority";
+const uri = "mongodb+srv://admin:admin@clusterpizza.jcdqj.mongodb.net/Pizza-Proj?retryWrites=true&w=majority";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,

@@ -4,12 +4,8 @@ var Schema = mongoose.Schema;
 
 var PizzaSchema = new Schema({
   nom : String,
-  ingredients : [String],
-  prix : Number,
-  createdAt : {
-    type : Date,
-    default : Date.now
-  },
+  description : String,
+  prix : String,
 });
 
 module.exports = mongoose.model('Pizza', PizzaSchema);
