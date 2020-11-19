@@ -70,7 +70,7 @@ const uri = "mongodb+srv://admin:admin@clusterpizza.jcdqj.mongodb.net";
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  dbName:'Pizza Proj'
+  dbName:'Pizza-Proj'
 })
 .then(() => {
   console.log(chalk.green("MongoDB Connected…"));
