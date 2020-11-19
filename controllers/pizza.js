@@ -2,8 +2,7 @@ function createPizza(req, res) {
     let Pizza = require('../models/pizza');
     let newPizza = Pizza ({
         nom: req.body.nom,
-        ingredients : req.body.ingredients,
-        taille : req.body.taille,
+        description : req.body.description,
         prix : req.body.prix
     });
 
@@ -22,6 +21,8 @@ function createPizza(req, res) {
 function readPizzas(req, res) {
 
     let Pizza = require("../models/pizza");
+
+    console.log("coucou")
 
     Pizza.find({})
     .then((pizzas) => {

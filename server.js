@@ -65,11 +65,12 @@ loggers.add('errorLogger', {
 
 const infoLogger = loggers.get('infoLogger');
 //ligne forunie par atlas pour faire la connexion à la base de données 
-const uri = "mongodb+srv://admin:admin@clusterpizza.jcdqj.mongodb.net/Pizza-Proj?retryWrites=true&w=majority";
+const uri = "mongodb+srv://admin:admin@clusterpizza.jcdqj.mongodb.net";
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  dbName:'Pizza-Proj'
 })
 .then(() => {
   console.log(chalk.green("MongoDB Connected…"));
